@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample
+  name: test1
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: sample
+      app: test1
   replicas: 2
   revisionHistoryLimit: 10
   template:
     metadata:
       labels:
-        app: sample
+        app: test1
     spec:
       containers:
-      - name: sample
-        image: 
+      - name: test1
+        image: orangebal/nginx-test:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -35,10 +35,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sample
+  name: test1
   namespace: default
   labels:
-    app: sample
+    app: test1
 spec:
   type: LoadBalancer
   ports:
@@ -46,4 +46,4 @@ spec:
       port: 80
       targetPort: 80
   selector:
-    app: sample
+    app: test1
