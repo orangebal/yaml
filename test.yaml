@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: test2
-        image: orangebal/web-test:0.2
+        image: orangebal/web-test:v1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
